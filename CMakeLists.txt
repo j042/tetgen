@@ -32,7 +32,7 @@ if(TETGEN_BUILD_LIBRARY)
         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:${incl_dest}>)
   if(CMAKE_BUILD_TYPE MATCHES Release)
-    target_compile_options(tetgen PRIVATE -O3)
+    target_compile_options(tetgen PRIVATE -O3 -frounding-math)
   endif()
 
 endif()
@@ -42,7 +42,7 @@ if(TETGEN_BUILD_EXECUTABLE)
   add_executable(tetgen_exec ${CXX_SOURCES})
   set_target_properties(tetgen_exec PROPERTIES OUTPUT_NAME tetgen)
   if(CMAKE_BUILD_TYPE MATCHES Release)
-    target_compile_options(tetgen_exec PRIVATE -O3)
+    target_compile_options(tetgen_exec PRIVATE -O3 -frounding-math)
   endif()
 endif()
 
